@@ -19,8 +19,8 @@
             [clojure.java.io :as io]
             [masago.methods.analyze :as A]))
 
-(def actor-dir (-> *file* io/file .getParentFile .getParentFile))
-(def seed (io/file actor-dir "data" "seed-open-materials-graph.kotoba.edn"))
+(def repository-root (-> *file* io/file .getParentFile .getParentFile .getParentFile .getParentFile))
+(def seed (io/file repository-root "data" "seed-open-materials-graph.kotoba.edn"))
 
 (defn- load- [] (A/classify (A/load-edn seed)))
 

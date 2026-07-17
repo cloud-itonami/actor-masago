@@ -24,7 +24,7 @@ and Meta is giving massive amounts away for free — is it integrated?"* — mas
 
 masago is **Clojure / kotoba-datomic native**, not Python — matching the Tier-B analyzer migration
 (hotaru/mitooshi/nusa Python→Clojure). Methods are pure `.cljc`, run on **babashka**, classpath
-root `20-actors`, namespace `masago.methods.*`. EDN `:…` keywords are kept as **strings** through
+roots `src` and `test`, namespace `masago.methods.*`. EDN `:…` keywords are kept as **strings** through
 the pipeline (shared house style with the nusa/hotaru ports). File I/O only at the edges.
 
 ## Hard gates (constitutional — read before any change)
@@ -58,44 +58,42 @@ the pipeline (shared house style with the nusa/hotaru ports). File I/O only at t
   `serverHeldKey=false`. R0 = offline analyze + schema + seed only.
 - **G8 — content-addressed canonical state / no git-lfs.** `render-datoms` is the canonical kotoba
   Datom log (EAVT ground `:add` + derived transient; ADR-2605312345). Large dumps via DataLad →
-  IPFS (ADR-2605262400, `80-data/open-materials`), never git-lfs.
+  IPFS (ADR-2605262400, external large-data repository), never git-lfs.
 
 ## Layout
 
 ```
-20-actors/masago/
+com-etzhayyim-masago/
 ├── CLAUDE.md                              # this file
 ├── README.md                             # short orientation
 ├── manifest.edn                          # actor manifest (Clojure cells, 8 gates, 6 non-goals)
 ├── data/
 │   └── seed-open-materials-graph.kotoba.edn   # hand-curated PUBLIC open-materials seed (mp-* ids)
-├── methods/                              # pure Clojure (.cljc) — babashka-runnable
+├── src/masago/methods/                   # pure Clojure (.cljc) — babashka-runnable
 │   ├── analyze.cljc                      # EDN reader + classify + screen (G1/G4) + analyze
 │   │                                     #   + render-report (discovery) + render-coverage
 │   │                                     #   + render-datoms (canonical EAVT) + -main
-│   └── test_analyze.cljc                 # 13 deftests (clojure.test), network-free
+├── test/masago/methods/test_analyze.cljc # 13 deftests (clojure.test), network-free
+├── schema/                               # canonical open-materials ontology EDN
+├── lex/                                  # canonical actor lexicon EDN
 └── out/                                  # GENERATED — do not hand-edit / do not commit
     ├── discovery-report.md · coverage-report.md · materials-datoms.kotoba.edn
 ```
 
-`methods/ingest.cljc` + `methods/publish.cljc` (live Materials Project REST / OMat24 ingest → CID →
-IPFS/IPNS + `80-data/open-materials` snapshot) are the **R1 outward legs** (G7-gated); not in R0.
+`src/masago/methods/ingest.cljc` + `publish.cljc` are reserved R1 outward legs; not in R0.
 
 ## Run
 
 ```bash
 cd <repo-root>
 # analyze (writes out/discovery-report.md, out/coverage-report.md, out/materials-datoms.kotoba.edn)
-bb --classpath 20-actors -m masago.methods.analyze
+bb -m masago.methods.analyze
 
 # tests (13 green, network-free)
-bb --classpath 20-actors -e "(require 'masago.methods.test-analyze)(require 'clojure.test)(clojure.test/run-tests 'masago.methods.test-analyze)"
+bb test
 ```
 
-When the Tier-B Clojure infra (`bb.edn`) merges to `origin/main`, register
-`masago.methods.test-analyze` in the `test:pywasm` task alongside hotaru/nusa/mitooshi.
-
-## Ontology (open-materials-ontology, `00-contracts/schemas/`)
+## Ontology (open-materials-ontology, `schema/`)
 
 - **nodes** `:mat/kind` ∈ `{:material :element :property :application :dataset-source}`, all keyed by
   `:mat/id`, with material (`:material/formula :material/spacegroup :material/crystal-system
@@ -111,7 +109,7 @@ When the Tier-B Clojure infra (`bb.edn`) merges to `origin/main`, register
   :mlip-screened 0.5 :estimated 0.3`.
 
 The invariant lives in **three places** (machine-checkable): schema `:db/allowed`/enums =
-lexicon `enum`/`const` (`00-contracts/lexicons/com/etzhayyim/masago/`) = `analyze.cljc` constants
+lexicon `knownValues`/`const` (`lex/*.edn`) = `analyze.cljc` constants
 (`confidence-weight` / `forbidden-node-attrs` / `forbidden-app-classes`).
 
 ## Cross-links

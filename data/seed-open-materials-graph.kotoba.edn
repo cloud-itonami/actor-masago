@@ -1,5 +1,5 @@
 ;; masago 真砂 — seed open-materials graph (real, PUBLIC computed-materials data only)
-;; ADR-2606151027 · vocabulary: open-materials-ontology (00-contracts/schemas/open-materials-ontology.kotoba.edn)
+;; ADR-2606151027 · vocabulary: schema/open-materials-ontology.kotoba.edn
 ;;
 ;; SCOPE GUARD (constitutional, G1 — read first):
 ;;   - masago is a RESEARCH map of PUBLIC computed-materials data, NEVER a weapons-design or

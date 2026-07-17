@@ -19,8 +19,8 @@ Clojure / kotoba-datomic native (not Python), babashka-runnable:
 
 ```bash
 # from repo root
-bb --classpath 20-actors -m masago.methods.analyze          # → out/{discovery,coverage}-report.md + materials-datoms.kotoba.edn
-bb --classpath 20-actors -e "(require 'masago.methods.test-analyze)(require 'clojure.test)(clojure.test/run-tests 'masago.methods.test-analyze)"   # 13 green
+bb -m masago.methods.analyze  # → src/masago/methods/out/*
+bb test                       # 13 tests / 433 assertions
 ```
 
 `analyze.cljc` parses the open-materials seed, screens it for charter-compliance (G1 no
@@ -32,5 +32,5 @@ the **R1 outward legs** (G7-gated); MLIP model execution is **R2+** on owned/don
 (G6, no commercial GPU).
 
 See `CLAUDE.md` for the constitutional gates and ontology, and
-`00-contracts/schemas/open-materials-ontology.kotoba.edn` for the vocabulary. Status: 🟡 R0
+`schema/open-materials-ontology.kotoba.edn` for the vocabulary. Status: 🟡 R0
 design-only (analyzer + schema + seed); scope expansion is operator/Council-gated (G7).

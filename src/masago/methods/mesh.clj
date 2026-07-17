@@ -7,7 +7,7 @@
 ;;
 ;; Posture: open public materials data mirror; a discovery map, non-adjudicating.
 ;; host-imports: kqe-assert! / kqe-query → kotoba:kais/kqe (needs cap/kqe)
-(ns masago)
+(ns masago.methods.mesh)
 
 (defn observe []
   ;; observe — disclosed material → property (open public data).

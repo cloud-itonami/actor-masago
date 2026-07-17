@@ -35,11 +35,11 @@
   {:ng/id "N6" :ng/req "no proprietary / vendor materials formulations — open-license sources only (G4)"}]
 
  :actor/cells
- [{:cell/id "materials_analyze"  :cell/kind :clojure :cell/method "methods/analyze.cljc" :cell/fn "analyze + render-report" :cell/runtime :bb}
-  {:cell/id "coverage_report"    :cell/kind :clojure :cell/method "methods/analyze.cljc" :cell/fn "render-coverage" :cell/runtime :bb}
-  {:cell/id "datom_emit"         :cell/kind :clojure :cell/method "methods/analyze.cljc" :cell/fn "render-datoms" :cell/runtime :bb}
-  {:cell/id "materials_ingest"   :cell/kind :clojure :cell/method "methods/ingest.cljc" :cell/runtime :bb :cell/status :r1 :cell/gated "G7 — Council + operator DID; live Materials Project REST / OMat24 dump"}
-  {:cell/id "materials_publish"  :cell/kind :clojure :cell/method "methods/publish.cljc" :cell/runtime :bb :cell/status :r1 :cell/gated "G7 — operator/mesh-side; ipfs pin + IPNS + 80-data/open-materials snapshot"}]
+ [{:cell/id "materials_analyze"  :cell/kind :clojure :cell/method "src/masago/methods/analyze.cljc" :cell/fn "analyze + render-report" :cell/runtime :bb}
+  {:cell/id "coverage_report"    :cell/kind :clojure :cell/method "src/masago/methods/analyze.cljc" :cell/fn "render-coverage" :cell/runtime :bb}
+  {:cell/id "datom_emit"         :cell/kind :clojure :cell/method "src/masago/methods/analyze.cljc" :cell/fn "render-datoms" :cell/runtime :bb}
+  {:cell/id "materials_ingest"   :cell/kind :clojure :cell/method "src/masago/methods/ingest.cljc" :cell/runtime :bb :cell/status :r1 :cell/gated "G7 — Council + operator DID; live Materials Project REST / OMat24 dump"}
+  {:cell/id "materials_publish"  :cell/kind :clojure :cell/method "src/masago/methods/publish.cljc" :cell/runtime :bb :cell/status :r1 :cell/gated "G7 — operator/mesh-side; ipfs pin + IPNS + data/open-materials snapshot"}]
 
  :actor/lex
  [{:lex/id "materialRecord"}
@@ -47,8 +47,8 @@
   {:lex/id "discoveryCandidateReport"}]
 
  :actor/substrate
- {:state    "kotoba Datom log (ADR-2605312345) — methods/analyze.cljc render-datoms emits canonical EAVT"
-  :schema   "00-contracts/schemas/open-materials-ontology.kotoba.edn"
+ {:state    "kotoba Datom log (ADR-2605312345) — src/masago/methods/analyze.cljc render-datoms emits canonical EAVT"
+  :schema   "schema/open-materials-ontology.kotoba.edn"
   :inference "Murakumo-only (ADR-2605215000); NO MLIP/ML model execution in R0/R1 (G6)"
-  :runtime  "babashka (bb) — pure Clojure analyzer, no third-party deps; classpath root 20-actors"
-  :tests    "bb --classpath 20-actors -e \"(require 'masago.methods.test-analyze)(clojure.test/run-tests 'masago.methods.test-analyze)\" — 13 tests green"}}
+  :runtime  "babashka (bb) — pure Clojure analyzer, no third-party deps"
+  :tests    "bb test — 13 tests / 433 assertions green"}}
