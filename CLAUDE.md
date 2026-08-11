@@ -1,4 +1,7 @@
-# masago 真砂 — open materials-discovery (公開材料) Knowledge Graph mirror
+# cloud-itonami/actor-masago — open materials-discovery (公開材料) Knowledge Graph mirror
+
+Canonical repository: `https://github.com/cloud-itonami/actor-masago`.
+The former `etzhayyim/com-etzhayyim-masago` path is a compatibility redirect.
 
 **ADR**: 2606151027 · **depends**: 2606101000 (rasen 螺旋 / genome-ontology — the science-data
 ingest/analyze/datom pattern) · 2606051200 (hotaru 蛍 — open-IP-only / no-fabrication stance) ·

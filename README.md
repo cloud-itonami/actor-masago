@@ -1,5 +1,10 @@
 # masago 真砂
 
+Canonical repository: `cloud-itonami/actor-masago`. This governed, on-demand
+materials observatory belongs to the Itonami public-operations plane. It emits
+research evidence only; it does not own synthesis, procurement, or the Tamaki
+artificial-organism evolution loop.
+
 Open materials-discovery (公開材料) Knowledge Graph mirror — the **materials-science sibling of
 rasen 螺旋 (genetics) and inochi 命 (biosphere)**.
 
