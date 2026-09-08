@@ -31,7 +31,7 @@
   House style (matches the hotaru/nusa Tier-B Clojure ports): EDN ':…' keyword strings stay
   strings (incl. all :mat/* / :material/* / :en/* attrs); pure fns; file I/O only at edges via
   clojure.java.io. Portable .cljc."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ── minimal EDN reader (subset: vectors [], maps {}, :keyword, "string", num, bool, nil) ──────
 ;; Keywords are kept as ":ns/name" strings (NOT clojure keywords) so the whole pipeline stays
@@ -132,7 +132,7 @@
   #{":weapon" ":energetic" ":explosive" ":propellant" ":warhead" ":fissile" ":enrichment"})
 
 (defn- open-license? [lic]
-  (let [l (str/lower-case (str (or lic "")))]
+  (let [l (str/lower (str (or lic "")))]
     (and (seq l) (or (str/includes? l "cc-by") (str/includes? l "open")))))
 
 (defn screen
