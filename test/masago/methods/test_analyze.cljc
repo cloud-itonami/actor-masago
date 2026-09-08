@@ -15,7 +15,7 @@
     - determinism (two runs byte-identical)
     - the report + coverage render with the invariant notes + honest denominator"
   (:require [clojure.test :refer [deftest is testing run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.java.io :as io]
             [masago.methods.analyze :as A]))
 
