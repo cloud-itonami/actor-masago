@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; masago — bb-native test runner (Clojure / babashka; no shell). Auto-generated
 ;; (repo-wide rule, root CLAUDE.md §"Operational code = clj/bb"): first-party tooling is
 ;; clj/bb, not shell. Discovers every test_*.{cljc,clj} namespace already authored under

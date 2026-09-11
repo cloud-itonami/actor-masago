@@ -24,8 +24,8 @@ Clojure / kotoba-datomic native (not Python), babashka-runnable:
 
 ```bash
 # from repo root
-bb -m masago.methods.analyze  # → src/masago/methods/out/*
-bb test                       # 13 tests / 433 assertions
+kbb -m masago.methods.analyze  # → src/masago/methods/out/*
+kbb -M:test                       # 13 tests / 433 assertions
 ```
 
 `analyze.cljc` parses the open-materials seed, screens it for charter-compliance (G1 no
