@@ -90,10 +90,10 @@ com-etzhayyim-masago/
 ```bash
 cd <repo-root>
 # analyze (writes out/discovery-report.md, out/coverage-report.md, out/materials-datoms.kotoba.edn)
-bb -m masago.methods.analyze
+kbb -m masago.methods.analyze
 
 # tests (13 green, network-free)
-bb test
+kbb -M:test
 ```
 
 ## Ontology (open-materials-ontology, `schema/`)

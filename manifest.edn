@@ -51,4 +51,4 @@
   :schema   "schema/open-materials-ontology.kotoba.edn"
   :inference "Murakumo-only (ADR-2605215000); NO MLIP/ML model execution in R0/R1 (G6)"
   :runtime  "babashka (bb) — pure Clojure analyzer, no third-party deps"
-  :tests    "bb test — 13 tests / 433 assertions green"}}
+  :tests    "kbb -M:test — 13 tests / 433 assertions green"}}
