@@ -67,7 +67,7 @@ the pipeline (shared house style with the nusa/hotaru ports). File I/O only at t
 
 ```
 com-etzhayyim-masago/
-├── CLAUDE.md                              # this file
+├── AGENTS.md                              # this file
 ├── README.md                             # short orientation
 ├── manifest.edn                          # actor manifest (Clojure cells, 8 gates, 6 non-goals)
 ├── data/

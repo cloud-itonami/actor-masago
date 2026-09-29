@@ -36,6 +36,6 @@ emits a discovery report, an honest coverage report, and the canonical kotoba Da
 the **R1 outward legs** (G7-gated); MLIP model execution is **R2+** on owned/donated compute only
 (G6, no commercial GPU).
 
-See `CLAUDE.md` for the constitutional gates and ontology, and
+See `AGENTS.md` for the constitutional gates and ontology, and
 `schema/open-materials-ontology.kotoba.edn` for the vocabulary. Status: 🟡 R0
 design-only (analyzer + schema + seed); scope expansion is operator/Council-gated (G7).
